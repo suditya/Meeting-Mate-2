@@ -11,7 +11,7 @@ const app = express();
 
 app.use(bodyParser.json())
 
-app.use(cors())
+app.use(cors());
 
 app.use(express.static(path.join(process.cwd(), 'public')));
 
@@ -28,9 +28,9 @@ app.use('/api/list', ListRouter)
 app.use('/api/email', ScheduledEmailRouter)
 
 
-app.use(function (req, res, next) {
-    res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-})
+// app.use(function (req, res, next) {
+//     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+// })
 
 const PORT = process.env.PORT || 3000
 

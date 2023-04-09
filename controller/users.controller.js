@@ -101,6 +101,7 @@ const SigninController = async (req, res) => {
             }
         }
     } catch (error) {
+        console.log("catching the errror")
         res.status(401).json({
             staus: "FAILED",
             message: error.message
