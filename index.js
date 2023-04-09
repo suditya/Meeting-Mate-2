@@ -36,7 +36,8 @@ const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+    console.log(process.env.NODE_ENV);
 })
-    .on('error', error => {
-        console.error(error.message);
-    });
+.on('error', error => {
+    console.error(error.message);
+});
