@@ -60,19 +60,22 @@ const SigninController = async (req, res) => {
             const data = await User.findOne({ email })
             console.log(data);
             if (data.length == 0) {
+                console.log("Email i'd doesn't exist. Please Register first")
                 res.status(401).json({
                     message: "Email i'd doesn't exist. Please Register first"
                 })
             }
             else if (!data.verified) {
+                console.log("not verified")
                 res.status(401).json({
                     message: "Email has not been verified yet"
                 })
             }
             else {
+                console.log("everything is ok");
                 const hashedPassword = data.password;
                 const result = await bcrypt.compare(password, hashedPassword);
-
+                console.log("after comparing passwords",result)
                 res.send({
                     message: "Singin Successful",
                     // authToken: token,
