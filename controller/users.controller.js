@@ -15,7 +15,7 @@ const SignupController = async (req, res) => {
 
         if (result.length) {
             res.status(401).json({
-                status: "Gandu",
+                status: "BAD",
                 message: "User with this email id is already exist"
             })
         }
@@ -45,10 +45,10 @@ const SignupController = async (req, res) => {
 
 
 const SigninController = async (req, res) => {
-    console.log(req.body,"request body")
+    
     try {
         let { email, password } = req.body;
-
+        console.log(req.body,"request body");
         if (!(email && password)) {
             res.status(401).json({
                 message: "Empty details are not allowed"
