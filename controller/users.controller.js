@@ -35,9 +35,10 @@ const SignupController = async (req, res) => {
             SendOTPVerificationEmail(newUser, res);
         }
     } catch (error) {
+        console.log(error);
         res.status(401).json({
-            status: "Galat",
-            message:  "jhaatu backend"
+            status: "crashed",
+            message:  "server crashed maybe!"
         })
     }
 }
