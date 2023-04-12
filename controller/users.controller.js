@@ -58,7 +58,7 @@ const SigninController = async (req, res) => {
 
         else {
             const data = await User.findOne({ email })
-
+            console.log(data);
             if (data.length == 0) {
                 res.status(401).json({
                     message: "Email i'd doesn't exist. Please Register first"
