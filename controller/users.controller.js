@@ -12,7 +12,7 @@ const SignupController = async (req, res) => {
         console.log("aa rh h")
 
         const result = await User.find({ email })
-
+        console.log(result,"result");
         if (result.length) {
             res.status(401).json({
                 status: "BAD",
@@ -66,7 +66,7 @@ const SigninController = async (req, res) => {
                 })
             }
             else if (!data.verified) {
-                console.log("not verified")
+                console.log("not verifieddddd")
                 res.status(401).json({
                     message: "Email has not been verified yet"
                 })

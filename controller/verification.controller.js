@@ -14,7 +14,7 @@ let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: "emailengine9@gmail.com",
-        pass: "oreiihnwacpcjvpv"
+        pass: "gypmfpigakklodjn"
     }
 })
 
@@ -41,9 +41,11 @@ const SendOTPVerificationEmail = async ({ _id, email }, res) => {
             expiresAt: Date.now() + 3600000,
         })
 
+        console.log("saving the otp verifaction");
         await newOTPVerification.save();
+        console.log("sending otp verifaction");
         await transporter.sendMail(mailOptions);
-
+        console.log("sent otp");
         res.status(202).send({
             status: "PENDING",
             message: `Verification OTP email sent to ${email}`,
@@ -54,6 +56,7 @@ const SendOTPVerificationEmail = async ({ _id, email }, res) => {
         })
 
     } catch (error) {
+        console.log("verification failed");
         res.status(401).json({
             status: "FAILED",
             message: error.message
