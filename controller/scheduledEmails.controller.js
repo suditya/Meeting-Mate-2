@@ -12,17 +12,7 @@ const List = require('../models/List');
 
 const ScheduledEmailsController = async (req, res) => {
     try {
-        // const token = req.headers['authorization']
-
-        // await jwt.verify(token, process.env.JWT_KEY, async (err) => {
-            // if (err) {
-            //     res.status(401).json({
-            //         status: "FAILED",
-            //         message: "You don't have the access"
-            //     })
-            // }
-            // else
-            //  {
+        
                 const result = await ScheduledEmails.find({ userId: req.params['userId'], tag: "Everyone" }).sort({
                     meetingDate: -1,
                     startTime: -1

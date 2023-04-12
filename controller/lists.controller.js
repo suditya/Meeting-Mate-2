@@ -16,14 +16,18 @@ const AllListsController = async (req, res) => {
         //         })
         //     }
         //     else {
+            console.log("trying to get all the lists",req.params['userId']);
                 const data = await List.find({ userId: req.params['userId'] })
+                console.log(data);
 
                 if (data.length == 0) {
+                    console.log("no lists found");
                     res.status(401).json({
                         message: "No List is there"
                     })
                 }
                 else {
+                    console.log("success");
                     res.send({
                         status: "SUCCESS",
                         data: data
@@ -34,6 +38,7 @@ const AllListsController = async (req, res) => {
 
     // } 
     catch (error) {
+        console.log("error occured in list finding")
         res.status(401).json({
             staus: "FAILED",
             message: error.message,
@@ -55,7 +60,7 @@ const UsersEmailsController = async (req, res) => {
         //     }
         //     else {
                 const result = await UserEmail.find({ userId: req.params['_id'] })
-
+                console.log(result,"result");
                 res.send({
                     status: "SUCCESS",
                     data: result
