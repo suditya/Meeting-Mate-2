@@ -29,11 +29,11 @@ app.use('/api/email', ScheduledEmailRouter)
 
 
 app.use(function (req, res, next) {
-<<<<<<< HEAD
+
     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
-=======
-     res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
->>>>>>> 70a5d19ec1bebe79b1d6eecfbe42accada22b7e9
+
+    //  res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+
 })
 
 const PORT = process.env.PORT || 3000
