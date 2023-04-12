@@ -45,10 +45,10 @@ const SignupController = async (req, res) => {
 
 
 const SigninController = async (req, res) => {
-    
+    console.log("before try ")
     try {
         let { email, password } = req.body;
-        console.log(req.body,"request body");
+        console.log(req.body,"under try ");
         if (!(email && password)) {
             res.status(401).json({
                 message: "Empty details are not allowed"
