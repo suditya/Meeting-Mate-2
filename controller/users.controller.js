@@ -50,6 +50,7 @@ const SigninController = async (req, res) => {
         let { email, password } = req.body;
         console.log(req.body,"under try ");
         if (!(email && password)) {
+            console.log("under k under");
             res.status(401).json({
                 message: "Empty details are not allowed"
             })
